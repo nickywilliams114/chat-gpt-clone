@@ -1,7 +1,6 @@
 import OpenAI from "openai";
-const openai = new OpenAI({
-  apiKey: 'MY_API_KEY'
-});
+const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
+const openai = new OpenAI({apiKey, dangerouslyAllowBrowser:true});
 
 export async function sendMsgToOpenAI(message) {
   const res = await openai.responses.create({
