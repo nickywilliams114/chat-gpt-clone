@@ -1,10 +1,10 @@
 import OpenAI from "openai";
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
-const openai = new OpenAI({apiKey, dangerouslyAllowBrowser:true});
+const openai = new OpenAI({ apiKey, dangerouslyAllowBrowser: true });
 
 export async function sendMsgToOpenAI(message) {
   const res = await openai.responses.create({
-    messages: [{ role: "developer", content: "You are a helpful assistant." }],
+    input: [{ role: "developer", content: "You are a helpful assistant." }],
     model: "gpt-3.5-turbo",
     store: true,
   });
